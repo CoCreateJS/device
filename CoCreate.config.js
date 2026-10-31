@@ -11,7 +11,7 @@ module.exports = {
                 path: "/docs/device",
                 pathname: "/docs/device/index.html",
                 src: "{{./docs/index.html}}",
-                host: ["cocreate.app", "general.cocreate.app"],
+                host: ["CoCreateJS.com", "general.CoCreateJS.com"],
                 directory: "device",
                 "content-type": "{{content-type}}",
                 public: "true"
