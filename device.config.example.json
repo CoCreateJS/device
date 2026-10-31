@@ -1,0 +1,9 @@
+{
+  "appId": "app.cocreate.example",
+  "name": "CoCreate Example",
+  "version": "1.0.0",
+  "webDir": "./your-app/dist",
+  "entry": "index.html",
+  "capabilities": ["device.contacts.select", "device.contacts.getProperties"],
+  "allowedOrigins": ["https://appassets.androidplatform.net"]
+}

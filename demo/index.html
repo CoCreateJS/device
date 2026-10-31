@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CoCreate Device demo</title>
+</head>
+<body>
+	<main>
+		<h1>Device bridge envelope</h1>
+		<p>This starter demo shows the envelope shape. A native host or registered browser provider is required to handle the request.</p>
+		<pre id="result" aria-live="polite">Ready</pre>
+		<button id="send" type="button">Send example request</button>
+	</main>
+	<script src="../dist/CoCreate-device.js"></script>
+	<script>
+		document.querySelector("#send").addEventListener("click", async () => {
+			const result = document.querySelector("#result");
+			try {
+				const response = await CoCreate.device.send({
+					method: "device.contacts.select",
+					device: { properties: ["name", "email", "tel"], options: { multiple: true } }
+				});
+				result.textContent = JSON.stringify(response, null, 2);
+			} catch (error) {
+				result.textContent = error.message;
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CoCreate Device | CoCreateJS</title>
+</head>
+<body>
+	<main>
+		<h1>CoCreate Device</h1>
+		<p>A shared capability API and envelope bridge for browser and native WebView providers.</p>
+		<h2>Request envelope</h2>
+		<pre><code>{
+  method: "device.contacts.select",
+  uuid: "request-id",
+  device: { properties: ["name", "email", "tel"], options: { multiple: true } }
+}</code></pre>
+		<h2>Runtime API</h2>
+		<pre><code>const response = await CoCreate.device.send({
+  method: "device.contacts.select",
+  device: { properties: ["name", "email", "tel"], options: { multiple: true } }
+});</code></pre>
+		<p>The runtime and build scripts are a scaffold; native host projects are pending.</p>
+		<p>Repository design references: <code>docs/architecture.md</code>,
+			<code>docs/review.md</code>, and <code>docs/roadmap.md</code>.</p>
+		<p>See the repository README and <code>src/README.md</code> for setup and bridge details.</p>
+	</main>
+</body>
+</html>
