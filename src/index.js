@@ -2,12 +2,22 @@ import { createBrowserProvider } from "./browser/index.js";
 import { createBridgeClient } from "./bridge/client.js";
 import { createEnvelope, createError, isRecord, PROTOCOL_VERSION } from "./bridge/protocol.js";
 
+/**
+ *
+ * @public
+ * @environment client
+ */
 function createDevice({ navigatorObject = globalThis.navigator, globalObject = globalThis, bridge = createBridgeClient({ globalObject }) } = {}) {
 	const browser = createBrowserProvider(navigatorObject);
 	let providerOrder = ["native", "browser"];
 	let context = {};
 	const timeouts = new Map([["device.contacts.select", 0]]);
 
+	/**
+	 *
+ * @public
+ * @environment client
+ */
 	function configure(options = {}) {
 		if (options.providers !== undefined) {
 			if (!Array.isArray(options.providers) || !options.providers.length || options.providers.some(x => !["native", "browser"].includes(x)))
@@ -27,14 +37,29 @@ function createDevice({ navigatorObject = globalThis.navigator, globalObject = g
 		bridge.configure(options);
 	}
 
+	/**
+	 *
+ * @public
+ * @environment client
+ */
 	function isNativeSupported(method) {
 		return providerOrder.includes("native") && bridge.isSupported(method);
 	}
 
+	/**
+	 *
+ * @public
+ * @environment client
+ */
 	function isSupported(method) {
 		return isNativeSupported(method) || (providerOrder.includes("browser") && browser.isSupported(method));
 	}
 
+	/**
+	 *
+ * @public
+ * @environment client
+ */
 	function send(request, options = {}) {
 		let envelope;
 		try {
@@ -58,9 +83,39 @@ function createDevice({ navigatorObject = globalThis.navigator, globalObject = g
 	}
 
 	return {
+		/**
+		 *
+ * @public
+ * @environment client
+ */
 		configure, createEnvelope, isNativeSupported, isSupported, send,
+		/**
+		 *
+ * @public
+ * @environment client
+ */
 		registerBrowserProvider: browser.register,
+		/**
+		 *
+ * @public
+ * @environment client
+ */
 		setNativeTransport: bridge.setNativeTransport,
+		/**
+		 *
+ * @public
+ * @environment client
+ */
+		/**
+		 *
+ * @public
+ * @environment client
+ */
+		/**
+		 *
+ * @public
+ * @environment client
+ */
 		receive: bridge.receive, disconnect: bridge.disconnect, dispose: bridge.dispose,
 		protocolVersion: PROTOCOL_VERSION
 	};
@@ -70,3 +125,18 @@ const Device = createDevice();
 export { createDevice, createEnvelope };
 export const { configure, disconnect, dispose, isNativeSupported, isSupported, receive, registerBrowserProvider, send, setNativeTransport } = Device;
 export default Device;
+
+/**
+ *
+ * @name default
+ * @kind member
+ * @public
+ * @environment client
+ */
+
+/**
+ * A shared device capability API and envelope bridge for CoCreate apps.
+ *
+ * @module device
+ * @environment client
+ */

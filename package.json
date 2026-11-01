@@ -12,36 +12,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "cocreate": {
-    "environment": [
-      "client"
-    ],
-    "interface": {
-      "schemaVersion": 1,
-      "summary": "A shared device capability API and envelope bridge for CoCreate apps.",
-      "source": "src/index.js",
-      "nativeSource": "src/native/index.js",
-      "declarative": {
-        "actions": []
-      },
-      "api": {
-        "exports": [
-          "configure",
-          "createDevice",
-          "createEnvelope",
-          "default",
-          "disconnect",
-          "dispose",
-          "isNativeSupported",
-          "isSupported",
-          "receive",
-          "registerBrowserProvider",
-          "send",
-          "setNativeTransport"
-        ]
-      }
-    }
-  },
   "scripts": {
     "start": "webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",
