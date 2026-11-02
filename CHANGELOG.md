@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/CoCreateJS/device/compare/v1.0.0...v2.0.0) (2026-11-02)
+
+
+### Features
+
+* align CoCreate repository and package naming ([1e56d0c](https://github.com/CoCreateJS/device/commit/1e56d0c91c77751dc9f097e2738a67b6696d6fbe))
+
+
+### BREAKING CHANGES
+
+* consumers must use the renamed CoCreate package and repository identities; the previous prefixed names are no longer supported.
+
 # 1.0.0 (2026-10-31)
 
 
